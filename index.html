@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Verification</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">
+          <img src="./img/logo.svg" alt="Logo" />
+        </div>
+      </header>
+
+      <section class="verification-form">
+        <h2>
+          Enter certificate code &amp; student name below to verify certificate
+        </h2>
+
+        <form action="#" id="verificationForm">
+          <label for="student-name">Student Name</label>
+          <input
+            type="text"
+            id="student-name"
+            name="student-name"
+            placeholder="Enter name as on the certificate"
+          />
+          <small
+            >Enter the name of the student as it is on the certificate</small
+          >
+
+          <label for="certificate-ID">Certificate ID</label>
+          <input type="text" id="certificate-ID" name="certificate-ID" />
+          <small
+            >Enter the certificate ID above. You will find it on the upper right
+            of your certificate.</small
+          >
+
+          <button type="submit" class="verify-btn">VERIFY NOW</button>
+        </form>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
