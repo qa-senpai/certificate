@@ -11,7 +11,7 @@ jobs:
 
       - name: Set env variable
         run: |
-          echo "API_URL=$API_URL"
+          echo "API_URL=$secrets.API_URL"
         env:
           API_URL: ${{ secrets.API_URL }}
 
