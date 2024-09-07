@@ -1,4 +1,4 @@
-const API_URL = process.env.API_URL || "http://localhost:3000";
+const API_URL = "http://localhost:3000";
 
 /// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
