@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certificate Verification</title>
+    <title>QA DOJO Certificate Verification</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
       <header class="header">
         <div class="logo">
-          <img src="./img/logo.svg" alt="Logo" />
+          <img src="../img/logo.svg" alt="Logo" />
         </div>
       </header>
 
       <section class="verification-form">
         <h2>
-          Enter certificate code &amp; student name below to verify certificate
+          Enter student name &amp; certificate id below to verify certificate
         </h2>
 
         <form action="#" id="verificationForm">
@@ -39,9 +39,40 @@
           >
 
           <button type="submit" class="verify-btn">VERIFY NOW</button>
+
         </form>
       </section>
-    </div>
+
+          <!-- Success Modal -->
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+          <span class="close" id="closeSuccessModal">&times;</span>
+          <div class="modal-body">
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="checkmark-check" fill="none" d="M16 26l7 7 14-14"/>
+              </svg>
+              <p>Success! The certificate is valid.</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div id="errorModal" class="modal">
+      <div class="modal-content">
+          <span class="close" id="closeErrorModal">&times;</span>
+          <div class="modal-body">
+              <svg class="crossmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="crossmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="crossmark-cross" fill="none" d="M16 16l20 20m0-20L16 36"/>
+              </svg>
+              <p>Error: The certificate is not valid.</p>
+          </div>
+      </div>
+  </div>
+
+      
+
     <script src="script.js"></script>
   </body>
 </html>

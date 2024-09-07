@@ -1,4 +1,6 @@
-// Wait until the DOM is fully loaded
+const API_URL = process.env.API_URL || "http://localhost:3000";
+
+/// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Select the form element
   const form = document.getElementById("verificationForm");
@@ -19,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // Show an error if either field is empty
       alert("Please fill in both the student name and certificate ID.");
     } else {
-      fetch(`http://localhost:3000/api/validate/${certificateID}`)
+      fetch(
+        `http://${API_URL}/api/certificate/?full_name=${studentName}&certificateId=${certificateID}`
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error("Certificate not found");
@@ -27,19 +31,38 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
-          // Handle successful response (assuming the API returns a JSON object)
+          console.log(data);
+          // If the certificate is valid, show the success modal
           if (data.isValid) {
-            alert(`Certificate is valid for ID: ${certificateID}`);
+            showModal("successModal");
           } else {
-            alert("Certificate is not valid.");
+            // If the certificate is not valid, show the error modal
+            showModal("errorModal");
           }
         })
         .catch((error) => {
           // Handle error (e.g., certificate not found, network error)
-          alert(`Error: ${error.message}`);
+          showModal("errorModal");
         });
     }
 
     // API call to check if the certificate ID is valid
   });
 });
+
+function showModal(modalId) {
+  const modal = document.getElementById(modalId);
+  modal.style.display = "flex"; // Show the modal
+
+  const closeModal = modal.querySelector(".close");
+  closeModal.onclick = function () {
+    modal.style.display = "none"; // Hide the modal when clicking on the close button
+  };
+
+  // Hide the modal if the user clicks outside of it
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+}
