@@ -1,9 +1,9 @@
-name: Build and Deploy
+name: Deploy to GitHub Pages
 on: [push]
 permissions:
   contents: write
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -15,7 +15,8 @@ jobs:
         env:
           API_URL: ${{ secrets.API_URL }}
 
+      # Deploy from the root directory
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: /
+          folder: .
