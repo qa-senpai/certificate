@@ -1,4 +1,7 @@
-import { config } from "./config";
+const config = {
+  API_URL: window.API_URL || "http://localhost:3000",
+  ENVIRONMENT: "production",
+};
 
 /// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {

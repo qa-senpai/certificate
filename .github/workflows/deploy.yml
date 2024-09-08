@@ -11,7 +11,7 @@ jobs:
 
       - name: Inject environment variable
         run: |
-          echo "window.API_URL='${{ secrets.API_URL }}';" > config.js
+          echo "window.API_URL='${{ secrets.API_URL }}';" > script.js
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
