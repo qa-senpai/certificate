@@ -1,5 +1,7 @@
-const apiUrl = "{{API_URL}}";
-console.log(apiUrl);
+const BASE_URL = {
+  api_url: "https://localhost:3000",
+  prod_api_url: "https://free-walrus-qa-senpai-11322ee0.koyeb.app/",
+};
 
 /// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please fill in both the student name and certificate ID.");
     } else {
       fetch(
-        `${apiUrl}/api/certificate/?full_name=${studentName}&certificateId=${certificateID}`
+        `${BASE_URL.prod_api_url}/api/certificate/?full_name=${studentName}&certificateId=${certificateID}`
       )
         .then((response) => {
           if (!response.ok) {
