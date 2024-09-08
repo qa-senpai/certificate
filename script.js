@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+import { config } from "./config";
 
 /// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please fill in both the student name and certificate ID.");
     } else {
       fetch(
-        `${API_URL}/api/certificate/?full_name=${studentName}&certificateId=${certificateID}`
+        `${config.API_URL}/api/certificate/?full_name=${studentName}&certificateId=${certificateID}`
       )
         .then((response) => {
           if (!response.ok) {
