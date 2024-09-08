@@ -1,5 +1,5 @@
 const BASE_URL = {
-  api_url: "https://localhost:3000",
+  api_url: "http://localhost:3000",
   prod_api_url: "https://free-walrus-qa-senpai-11322ee0.koyeb.app",
 };
 
