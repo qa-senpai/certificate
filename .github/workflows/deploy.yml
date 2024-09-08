@@ -9,13 +9,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Set env variable
+      - name: Inject environment variable
         run: |
-          echo "API_URL=${{ secrets.API_URL }}"
-        env:
-          API_URL: ${{ secrets.API_URL }}
+          echo "window.API_URL='${{ secrets.API_URL }}';" > config.js
 
-      # Deploy from the root directory
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
