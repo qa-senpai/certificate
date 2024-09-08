@@ -9,9 +9,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Inject environment variable
+      - name: Inject environment variable into JavaScript file
         run: |
-          echo "window.API_URL='${{ secrets.API_URL }}';" > script.js
+          # Replace a placeholder in the JavaScript or HTML file
+          sed -i 's|{{API_URL}}|'"${{ secrets.API_URL }}"'|g' script.js
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
