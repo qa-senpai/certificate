@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please fill in both the student name and certificate ID.");
     } else {
       fetch(
-        `${config.API_URL}/api/certificate/?full_name=${studentName}&certificateId=${certificateID}`
+        `${apiUrl}/api/certificate/?full_name=${studentName}&certificateId=${certificateID}`
       )
         .then((response) => {
           if (!response.ok) {
