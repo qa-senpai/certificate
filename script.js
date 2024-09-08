@@ -1,4 +1,5 @@
 const apiUrl = "{{API_URL}}";
+console.log(apiUrl);
 
 /// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
